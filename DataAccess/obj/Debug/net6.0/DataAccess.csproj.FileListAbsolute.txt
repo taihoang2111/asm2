@@ -1,0 +1,16 @@
+D:\DOT-Net\Ass02Solution\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+D:\DOT-Net\Ass02Solution\DataAccess\bin\Debug\net6.0\DataAccess.dll
+D:\DOT-Net\Ass02Solution\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+D:\DOT-Net\Ass02Solution\DataAccess\bin\Debug\net6.0\BusinessObject.dll
+D:\DOT-Net\Ass02Solution\DataAccess\bin\Debug\net6.0\BusinessObject.pdb
+D:\DOT-Net\Ass02Solution\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+D:\DOT-Net\Ass02Solution\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\DOT-Net\Ass02Solution\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+D:\DOT-Net\Ass02Solution\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+D:\DOT-Net\Ass02Solution\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+D:\DOT-Net\Ass02Solution\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete
+D:\DOT-Net\Ass02Solution\DataAccess\obj\Debug\net6.0\DataAccess.dll
+D:\DOT-Net\Ass02Solution\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+D:\DOT-Net\Ass02Solution\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+D:\DOT-Net\Ass02Solution\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+D:\DOT-Net\Ass02Solution\DataAccess\bin\Debug\net6.0\appsettings.json
