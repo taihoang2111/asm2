@@ -92,6 +92,20 @@ namespace DataAccess
             }
         }
         //--------------------------------------------------------
+        public MemberObject GetMemberbyLogin(string email,string password)
+        {
+            using (var context = new MemberDAO())
+            {
+                var mb = context.Members.FirstOrDefault(c => c.Email == email && c.Password==password);
+                
+                if (mb != null)
+                {
+                    return mb;
+                }
+                else return null;
+            }
+        }
+        //--------------------------------------------------------
         public void Update (MemberObject member)
         {
             using (var context = new MemberDAO())

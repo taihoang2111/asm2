@@ -42,6 +42,12 @@ namespace SalesWinApp
                 if (InsertOrUpdate == false)
                 {
                     MemberRepository.InsertMember(member);
+                    MessageBox.Show("Save success");
+                    txtEmail.Clear();
+                    txtCompanyName.Clear();
+                    txtCountry.Clear();
+                    txtCity.Clear();
+                    txtPassword.Clear();
                 }
                 else
                 {
@@ -73,7 +79,7 @@ namespace SalesWinApp
 
         }
 
-        private void btnCancel_Click(object sender, EventArgs e) => Close();
+        private void btnCancel_Click(object sender, EventArgs e) => Application.Exit();
         
         //----------------------------------------------------------------
     }
