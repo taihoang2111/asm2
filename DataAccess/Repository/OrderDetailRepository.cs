@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repository
 {
-    public class OrderDetailRepository:IOrderRepository
+    public class OrderDetailRepository: IOrderDetailRepository
     {
-        public OrderObject GetOrderByID(int id) => OrderDAO.Instance.GetOrderObjectByID(id);
-        public IEnumerable<OrderObject> GetOrderList() => OrderDAO.Instance.GetOrderObjectsList();
-        public void InsertOrder(OrderObject order)=> OrderDAO.Instance.AddNew(order);
-        public void UpdateOrder(OrderObject order)=> OrderDAO.Instance.Update(order);
-        public void DeleteOrder(int ID) => OrderDAO.Instance.Delete(ID);
+        public OrderDetailObject GetOrderDetailByID(int id) => OrderDetailDAO.Instance.GetOrderDetailByID(id);
+        public IEnumerable<OrderDetailObject> GetOrderDetailList() => OrderDetailDAO.Instance.GetOrderObjectsList();
+        public void InsertOrderDetail(OrderDetailObject order)=> OrderDetailDAO.Instance.AddNew(order);
+        public void UpdateOrderDetail(OrderDetailObject order)=> OrderDetailDAO.Instance.Update(order);
+        public void DeleteOrderDetail(int ID) => OrderDetailDAO.Instance.Delete(ID);
     }
 }

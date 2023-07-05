@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BusinessObject;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +9,109 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    internal class OrderDetailDAO
+    public class OrderDetailDAO : DbContext
     {
+        public static OrderDetailDAO instance = null;
+        public static readonly object instanceLock = new object();
+        private OrderDetailDAO() { }
+        public static OrderDetailDAO Instance
+        {
+            get
+            {
+                lock (instanceLock)
+                {
+                    if (instance == null)
+                    {
+                        instance = new OrderDetailDAO();
+                    }
+                }
+                return instance;
+            }
+        }
+
+
+        public DbSet<OrderDetailObject> OrderDetail { get; set; }
+        //--------------------------------------------------------
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var configuration = new ConfigurationBuilder()
+                       .SetBasePath(Directory.GetCurrentDirectory())
+                       .AddJsonFile("appsettings.json")
+                       .Build();
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("MySaleDB"));
+        }
+        //--------------------------------------------------------
+        public void AddNew(OrderDetailObject Order)
+        {
+            try
+            {
+                using (var context = new OrderDetailDAO())
+                {
+                    context.OrderDetail.Add(Order);
+                    context.SaveChanges();
+                }
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine("An error occurred while saving the changes:");
+                Console.WriteLine(ex.ToString());
+
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine("Inner Exception:");
+                    Console.WriteLine(ex.InnerException.ToString());
+                }
+
+                throw;
+            }
+        }
+        //--------------------------------------------------------
+        public IEnumerable<OrderDetailObject> GetOrderObjectsList()
+        {
+            using (var context = new OrderDetailDAO())
+            {
+                var mbl = context.OrderDetail.ToList();
+                return mbl;
+            }
+        }
+        //--------------------------------------------------------
+        public OrderDetailObject? GetOrderDetailByID(int OrderID)
+        {
+            using (var context = new OrderDetailDAO())
+            {
+                var mb = context.OrderDetail.FirstOrDefault(c => c.OrderID == OrderID);
+                if (mb != null)
+                {
+                    return mb;
+                }
+                else return null;
+            }
+        }
+        //--------------------------------------------------------
+        public void Update(OrderDetailObject Order)
+        {
+            using (var context = new OrderDetailDAO())
+            {
+                var mb = context.OrderDetail.FirstOrDefault(c => c.OrderID == Order.OrderID);
+                if (mb != null)
+                {
+                    mb = Order;
+                    context.SaveChanges();
+                }
+            }
+        }
+        //--------------------------------------------------------
+        public void Delete(int OrderID)
+        {
+            using (var context = new OrderDetailDAO())
+            {
+                var or = context.OrderDetail.FirstOrDefault(c => c.OrderID == OrderID);
+                if (or != null)
+                {
+                    context.OrderDetail.Remove(or);
+                    context.SaveChanges();
+                }
+            }
+        }
     }
 }

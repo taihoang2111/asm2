@@ -94,7 +94,7 @@ namespace DataAccess
         {
             using (var context = new OrderDAO())
             {
-                var mb = context.Order.FirstOrDefault(c => c.MemberID == Order.MemberID);
+                var mb = context.Order.FirstOrDefault(c => c.OrderID == Order.OrderID);
                 if (mb != null)
                 {
                     mb = Order;
@@ -107,7 +107,7 @@ namespace DataAccess
         {
             using (var context = new OrderDAO())
             {
-                var or = context.Order.FirstOrDefault(c => c.MemberID == OrderID);
+                var or = context.Order.FirstOrDefault(c => c.OrderID == OrderID);
                 if (or != null)
     {
                     context.Order.Remove(or);
