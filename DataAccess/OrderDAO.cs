@@ -109,7 +109,7 @@ namespace DataAccess
             {
                 var or = context.Order.FirstOrDefault(c => c.MemberID == OrderID);
                 if (or != null)
-                {
+    {
                     context.Order.Remove(or);
                     context.SaveChanges();
                 }

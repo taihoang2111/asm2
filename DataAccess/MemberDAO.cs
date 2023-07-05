@@ -29,7 +29,11 @@ namespace DataAccess
                 return instance; }
         }
 
-     
+        internal void InsertMember(MemberObject member)
+        {
+            throw new NotImplementedException();
+        }
+
         public DbSet<MemberObject> Members { get; set; }
         //--------------------------------------------------------
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -46,9 +50,9 @@ namespace DataAccess
             try
             {
                 using (var context = new MemberDAO())
-                {
-                    context.Members.Add(member);
-                    context.SaveChanges();
+            {
+                context.Members.Add(member);
+                context.SaveChanges();
                 }
             }
             catch (DbUpdateException ex)
@@ -60,10 +64,10 @@ namespace DataAccess
                 {
                     Console.WriteLine("Inner Exception:");
                     Console.WriteLine(ex.InnerException.ToString());
-                }
+            }
 
                 throw;
-            }
+        }
         }
         //--------------------------------------------------------
         public IEnumerable<MemberObject> GetMemberObjectsList()

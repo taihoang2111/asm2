@@ -36,10 +36,12 @@
             this.txtCountry = new System.Windows.Forms.TextBox();
             this.txtCompanyName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtMemberID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtPassword
@@ -114,6 +116,14 @@
             this.txtEmail.Size = new System.Drawing.Size(235, 29);
             this.txtEmail.TabIndex = 23;
             // 
+            // txtMemberID
+            // 
+            this.txtMemberID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtMemberID.Location = new System.Drawing.Point(176, 26);
+            this.txtMemberID.Name = "txtMemberID";
+            this.txtMemberID.Size = new System.Drawing.Size(235, 29);
+            this.txtMemberID.TabIndex = 22;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -154,6 +164,16 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "Email";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(29, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 21);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "MemberID";
+            // 
             // frmMemberDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -167,10 +187,12 @@
             this.Controls.Add(this.txtCountry);
             this.Controls.Add(this.txtCompanyName);
             this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtMemberID);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Name = "frmMemberDetails";
             this.Text = "frmMemberDetails";
             this.Load += new System.EventHandler(this.frmMemberDetails_Load);
@@ -189,9 +211,11 @@
         private TextBox txtCountry;
         private TextBox txtCompanyName;
         private TextBox txtEmail;
+        private TextBox txtMemberID;
         private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
+        private Label label1;
     }
 }
