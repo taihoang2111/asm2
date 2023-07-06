@@ -75,11 +75,11 @@ namespace DataAccess
             }
         }
         //--------------------------------------------------------
-        public OrderDetailObject? GetOrderDetailByID(int OrderID)
+        public IEnumerable<OrderDetailObject> GetOrderDetailByID(int OrderID)
         {
             using (var context = new OrderDetailDAO())
             {
-                var mb = context.OrderDetail.FirstOrDefault(c => c.OrderID == OrderID);
+                var mb = context.OrderDetail.Where(c => c.OrderID == OrderID).ToList();
                 if (mb != null)
                 {
                     return mb;

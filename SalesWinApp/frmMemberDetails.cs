@@ -56,7 +56,7 @@ namespace SalesWinApp
             }
             catch (Exception ex)
             {
-                string errorMessage = InsertOrUpdate == false ? "Add New Car" : "Update New Car";
+                string errorMessage = InsertOrUpdate == false ? "Add New Member" : "Update New Member";
                 string exceptionMessage = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
                 string fullErrorMessage = $"An error occurred while saving the changes: {exceptionMessage}";
 
@@ -79,7 +79,7 @@ namespace SalesWinApp
 
         }
 
-        private void btnCancel_Click(object sender, EventArgs e) => Application.Exit();
+        private void btnCancel_Click(object sender, EventArgs e) => Close();
         
         //----------------------------------------------------------------
     }

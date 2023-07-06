@@ -4,7 +4,16 @@
     <Compile Update="frmMemberDetails.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmOderdetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmOrderDetailsManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmProductDetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Login.cs">

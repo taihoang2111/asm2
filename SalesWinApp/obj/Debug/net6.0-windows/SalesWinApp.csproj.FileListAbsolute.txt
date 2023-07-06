@@ -79,3 +79,6 @@ D:\DOT-Net\Ass02Solution\SalesWinApp\obj\Debug\net6.0-windows\SalesWinApp.genrun
 D:\DOT-Net\Ass02Solution\SalesWinApp\obj\Debug\net6.0-windows\ref\SalesWinApp.dll
 D:\DOT-Net\Ass02Solution\SalesWinApp\obj\Debug\net6.0-windows\SalesWinApp.frmProduct.resources
 D:\DOT-Net\Ass02Solution\SalesWinApp\obj\Debug\net6.0-windows\SalesWinApp.Login.resources
+D:\DOT-Net\Ass02Solution\SalesWinApp\obj\Debug\net6.0-windows\SalesWinApp.frmProductDetail.resources
+D:\DOT-Net\Ass02Solution\SalesWinApp\obj\Debug\net6.0-windows\SalesWinApp.frmOderdetails.resources
+D:\DOT-Net\Ass02Solution\SalesWinApp\obj\Debug\net6.0-windows\SalesWinApp.frmOrderDetailsManager.resources
