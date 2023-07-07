@@ -14,6 +14,11 @@ namespace DataAccess
         public static OrderDetailDAO instance = null;
         public static readonly object instanceLock = new object();
         private OrderDetailDAO() { }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<OrderDetailObject>()
+                .HasKey(o => new { o.OrderID, o.ProductID });
+        }
         public static OrderDetailDAO Instance
         {
             get
@@ -45,11 +50,8 @@ namespace DataAccess
         {
             try
             {
-                using (var context = new OrderDetailDAO())
-                {
-                    context.OrderDetail.Add(Order);
-                    context.SaveChanges();
-                }
+                this.OrderDetail.Add(Order);
+                this.SaveChanges();
             }
             catch (DbUpdateException ex)
             {
@@ -65,27 +67,22 @@ namespace DataAccess
                 throw;
             }
         }
-        //--------------------------------------------------------
+
         public IEnumerable<OrderDetailObject> GetOrderObjectsList()
         {
-            using (var context = new OrderDetailDAO())
-            {
-                var mbl = context.OrderDetail.ToList();
-                return mbl;
-            }
+            var mbl = this.OrderDetail.ToList();
+            return mbl;
         }
-        //--------------------------------------------------------
+
         public IEnumerable<OrderDetailObject> GetOrderDetailByID(int OrderID)
         {
-            using (var context = new OrderDetailDAO())
+            var mb = this.OrderDetail.Where(c => c.OrderID == OrderID).ToList();
+            if (mb != null)
             {
-                var mb = context.OrderDetail.Where(c => c.OrderID == OrderID).ToList();
-                if (mb != null)
-                {
-                    return mb;
-                }
-                else return null;
+                
+                return mb;
             }
+            else return null;
         }
         //--------------------------------------------------------
         public void Update(OrderDetailObject Order)

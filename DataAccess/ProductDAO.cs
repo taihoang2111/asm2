@@ -75,7 +75,7 @@ namespace DataAccess
             }
         }
         //--------------------------------------------------------
-        public ProductObject? GetOrderObjectByID(int ProductID)
+        public ProductObject GetOrderObjectByID(int ProductID)
         {
             using (var context = new ProductDAO())
             {
