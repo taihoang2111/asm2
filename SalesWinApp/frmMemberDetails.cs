@@ -30,17 +30,18 @@ namespace SalesWinApp
         {
             try
             {
-                var member = new MemberObject
-                {
-                   
-                    Email = txtEmail.Text,
-                    CompanyName = txtCompanyName.Text,
-                    City = txtCity.Text,
-                    Country = txtCountry.Text,
-                    Password = txtPassword.Text,
-                };
+                
                 if (InsertOrUpdate == false)
                 {
+                    var member = new MemberObject
+                    {
+
+                        Email = txtEmail.Text,
+                        CompanyName = txtCompanyName.Text,
+                        City = txtCity.Text,
+                        Country = txtCountry.Text,
+                        Password = txtPassword.Text,
+                    };
                     MemberRepository.InsertMember(member);
                     MessageBox.Show("Save success");
                     txtEmail.Clear();
@@ -51,7 +52,23 @@ namespace SalesWinApp
                 }
                 else
                 {
+                    var member = new MemberObject
+                    {
+                        MemberID= int.Parse(txtMemberID.Text),
+                        Email = txtEmail.Text,
+                        CompanyName = txtCompanyName.Text,
+                        City = txtCity.Text,
+                        Country = txtCountry.Text,
+                        Password = txtPassword.Text,
+                    };
                     MemberRepository.UpdateMember(member);
+                    MessageBox.Show("Save success");
+                    txtMemberID.Clear();
+                    txtEmail.Clear();
+                    txtCompanyName.Clear();
+                    txtCountry.Clear();
+                    txtCity.Clear();
+                    txtPassword.Clear();
                 }
             }
             catch (Exception ex)
@@ -69,7 +86,7 @@ namespace SalesWinApp
             txtEmail.Enabled = !InsertOrUpdate;
             if (InsertOrUpdate == true)
             {
-               
+                txtMemberID.Text= MemberInfo.MemberID.ToString();
                 txtEmail.Text= MemberInfo.Email.ToString();
                 txtCompanyName.Text= MemberInfo.CompanyName.ToString();
                 txtCity.Text= MemberInfo.City.ToString();
@@ -80,7 +97,12 @@ namespace SalesWinApp
         }
 
         private void btnCancel_Click(object sender, EventArgs e) => Close();
-        
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //----------------------------------------------------------------
     }
 }

@@ -143,6 +143,39 @@ namespace SalesWinApp
                 }
             }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+           
+            if (!string.IsNullOrEmpty(txtSearch.Text))
+            {
+                if (int.TryParse(txtSearch.Text, out int Id))
+                {
+                    Predicate<MemberObject> predicate = m => m.MemberID == Id;
+                    List<MemberObject> foundMembers = memberRepository.Search(predicate);
+                    if (foundMembers.Count()>0)
+                    {
+                        string message = "Found members:\n";
+                        dgwDataMember.DataSource = null;
+                        dgwDataMember.DataSource =  foundMembers;
+                    }
+                    else MessageBox.Show("Not found");
+                }
+                else
+                {
+                    Predicate<MemberObject> predicate = m => m.City == txtSearch.Text;
+                    List<MemberObject> foundMembers = memberRepository.Search(predicate);
+                    if (foundMembers.Count()>0)
+                    {
+                        string message = "Found members:\n";
+                        dgwDataMember.DataSource = null;
+                        dgwDataMember.DataSource = foundMembers;
+                    }
+                    else MessageBox.Show("Not found");
+                }
+            }
+            else MessageBox.Show("Please type info");
+        }
+
 
         //---------------------------------------------------------------------------
 

@@ -15,6 +15,7 @@ namespace DataAccess.Repository
         void InsertMember(MemberObject member);
         void UpdateMember(MemberObject member);
         void DeleteMember(int id);
+        List<MemberObject> Search(Predicate<MemberObject> predicate);
 
     }
 }

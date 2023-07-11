@@ -113,7 +113,8 @@ namespace DataAccess
                 var mb = context.Members.FirstOrDefault(c => c.MemberID == member.MemberID);
                 if(mb != null)
                 {
-                    mb = member;
+                    context.Entry(mb).CurrentValues.SetValues(member);
+                    context.Entry(mb).State = EntityState.Modified;
                     context.SaveChanges();
                 }
             }
@@ -132,6 +133,14 @@ namespace DataAccess
             }
         }
         //--------------------------------------------------------
+        public List<MemberObject> Search(Predicate<MemberObject> predicate)
+        {
+            using (var context = new MemberDAO())
+            {
+                var members = context.Members.AsEnumerable().Where(m => predicate(m)).ToList();
+                return members;
+            }
+        }
         //--------------------------------------------------------
         //--------------------------------------------------------
         //--------------------------------------------------------
